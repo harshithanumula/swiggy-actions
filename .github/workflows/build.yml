@@ -39,8 +39,5 @@ jobs:
         run: trivy image anumulaharshith/swiggy-clone:latest > trivyimagedeploy.txt
       - name: Deploy to container
         run: docker run -d --name swiggy-clone -p 3000:3000 anumulaharshith/swiggy-clone:latest
-      - name: Update kubeconfig
-        run: aws eks --region us-east-1 update-kubeconfig --name EKS_CLOUD
-      - name: Deploy to kubernetes
-        run: kubectl apply -f deployment-service.yml .
+    
       
